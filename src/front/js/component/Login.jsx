@@ -1,10 +1,11 @@
 import React, { useState, useContext } from "react"
 import { Context } from "../store/appContext"
+import { Navigate, useNavigate } from "react-router-dom"
 
 
 const Login = () => {
     const { actions } = useContext(Context)
-
+    const navigate = useNavigate()
     const [user, setUser] = useState({
         email: "",
         password: ""
@@ -23,6 +24,9 @@ const Login = () => {
         console.log(result)
         if (result == 400) {
             alert("Bad credentials ")
+        }
+        if (result == 200){
+            navigate("/private")
         }
     }
 

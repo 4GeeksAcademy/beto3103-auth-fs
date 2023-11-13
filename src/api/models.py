@@ -20,7 +20,7 @@ class User(db.Model):
     password = db.Column(db.String(380), unique=False, nullable=False)
     salt = db.Column(db.String(80), unique=False, nullable=False)
     rol = db.Column(db.Enum(UserRol), nullable=False, default="general")
-    gender = db.Column(db.Enum(UserGender), nullable=False)
+    gender = db.Column(db.Enum(UserGender), nullable=False, default="male")#corregir
 
     def __repr__(self):
         return f'<User {self.email}>'
